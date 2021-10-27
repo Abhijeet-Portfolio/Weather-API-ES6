@@ -1,8 +1,6 @@
-@charset "utf-8";
 /* ==========================================================================
    1. CSS Reset Code
    ========================================================================== */
-
 /* 1.1. Eric Meyers Reset
    http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
@@ -20,135 +18,186 @@ time, mark, audio, video {
   border: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline;
-}
+  vertical-align: baseline; }
 
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-  display: block;
-}
+  display: block; }
 
 /* Force scrollbar */
-html { overflow-y: scroll; }
+html {
+  overflow-y: scroll; }
 
 /* Align radios and text inputs with their label */
-
-input[type='radio'] { vertical-align: text-bottom; }
+input[type='radio'] {
+  vertical-align: text-bottom; }
 
 /* Hand cursor on clickable input elements */
 label,
 input[type='button'],
 input[type='submit'],
 button {
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 strong {
   font-weight: bold;
   font-family: inherit;
-  font-size: inherit;
-}
+  font-size: inherit; }
 
-em { font-style: italic; }
+em {
+  font-style: italic; }
 
 img {
   width: 100%;
   border: 0;
-  vertical-align: middle;
-}
+  vertical-align: middle; }
 
 sub,
 sup {
   vertical-align: baseline;
   position: relative;
   font-size: 55%;
-  line-height: 0;
-}
+  line-height: 0; }
 
-sup { top: -.7em; }
-sub { bottom: -.25em; }
+sup {
+  top: -.7em; }
+
+sub {
+  bottom: -.25em; }
 
 /* 1.2. Clear Fix
    ========================== */
-
 .cf:before,
 .cf:after {
   display: table;
-  content: " ";
-}
+  content: " "; }
 
-.cf:after { clear: both; }
-.cf { *zoom: 1; }
+.cf:after {
+  clear: both; }
+
+.cf {
+  *zoom: 1; }
 
 /*for all*/
 body {
   box-sizing: border-box;
-  font-family: sans-serif;
-}
+  font-family: sans-serif; }
 
-a { 
+a {
   display: inline-block;
-  text-decoration: none; 
-}
+  text-decoration: none; }
 
 li {
   display: inline-block;
-  list-style-type: none;
-}
+  list-style-type: none; }
 
 /*for wrapper*/
 .wrapper {
-  max-width: 1360px;
-  width: 86%; 
-  margin: 0 auto;
-}
-/*=================================
-  Header styling starts here
-=================================*/
+  max-width: 1349px;
+  width: 50%;
+  margin: 0 auto; }
 
+body {
+  background-color: #f5f5f5; }
 
+header {
+  text-align: center; }
+  header a {
+    margin: 10px 0;
+    color: #888888;
+    font-size: 25px;
+    text-transform: capitalize; }
 
+form {
+  margin: 20px 0;
+  text-align: center; }
+  form .form-group {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 30%;
+    margin: 10px auto;
+    position: relative; }
+  form input {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 5px 4%;
+    margin-bottom: 20px;
+    outline: none; }
+  form span {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    color: #d32323;
+    font-size: 14px;
+    transition: .3s ease;
+    opacity: 0; }
+  form .error {
+    opacity: 1; }
+  form .form-control {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-box-pack: space-between;
+    -ms-flex-pack: space-between;
+    justify-content: space-between;
+    width: 30%;
+    margin: 0 auto; }
+  form button {
+    width: 40%;
+    padding: 5px 0;
+    border: 0;
+    background-color: #808080;
+    color: #ececec;
+    text-transform: capitalize; }
+    form button:hover {
+      background-color: #585858; }
 
+.display {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  -webkit-box-pack: space-between;
+  -ms-flex-pack: space-between;
+  justify-content: space-between;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: end;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 50%;
+  padding: 0 2.5% 20px;
+  border-radius: 20px;
+  margin: 50px auto;
+  display: none;
+  background-color: #ffffff; }
+  .display .status {
+    text-align: center; }
+  .display h2 {
+    color: #333333;
+    font-size: 20px;
+    text-transform: capitalize; }
+  .display h3 {
+    margin: 10px 0;
+    color: #555555;
+    font-size: 25px;
+    font-weight: 600; }
+  .display h4 {
+    color: #808080;
+    font-size: 15px; }
+  .display h5 {
+    color: #444444;
+    text-transform: capitalize;
+    font-size: 18px; }
 
-
-/*=================================
-  Header styling ends here
-=================================*/  
-
-/*=================================
-  main styling starts here
-=================================*/
-
-
-
-
-
-
-
-
-/*=================================
-  main styling ends here
-=================================*/
-
-/*=================================
-  footer styling starts here
-=================================*/ 
-
-
-
-
-
-
-
- /*=================================
-  footer styling ends here
-=================================*/ 
-
-/*media query starts*/
-/*media query for 995px starts here*/
-@media only screen and (max-width: 995px) {
-
-
-
-}  
+.show {
+  display: flex; }

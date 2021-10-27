@@ -1,0 +1,108 @@
+// utilities styles
+@import "utilities/reset";
+@import "utilities/variables";
+@import "utilities/mixin";
+@import "utilities/common";
+
+// pages styles
+
+body { background-color: #f5f5f5;}
+
+header {
+    text-align: center;
+
+    a {
+        margin: 10px 0;
+        color: #888888;
+        font-size: 25px;
+        text-transform: capitalize;
+    }
+}
+
+form {
+    margin: 20px 0;
+    text-align: center;
+
+    .form-group {
+        @include boxsizing;
+        width: 30%;
+        margin: 10px auto;
+        position: relative;
+    }
+
+    input {
+        @include boxsizing;
+        width: 100%;
+        padding: 5px 4%;
+        margin-bottom: 20px;
+        outline: none;
+    }
+
+    span {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        color: #d32323;
+        font-size: 14px;
+        transition: .3s ease;
+        opacity: 0
+    }
+
+    .error { opacity: 1;}
+
+    .form-control {
+        @include flex(row,space-between);
+        width: 30%;
+        margin: 0 auto;
+    }
+
+    button {
+        width: 40%;
+        padding: 5px 0;
+        border: 0;
+        background-color: #808080;
+        color: #ececec;
+        text-transform: capitalize;
+
+        &:hover { background-color: #585858;}
+    }
+}
+
+.display {
+    @include flex(row,space-between,null,end);
+    @include boxsizing;
+    width: 50%;
+    padding: 0 2.5% 20px;
+    border-radius: 20px;
+    margin: 50px auto;
+    display: none;
+    background-color: #ffffff;
+
+    .status {text-align: center;}
+
+    h2 {
+        color: #333333;
+        font-size: 20px;
+        text-transform: capitalize;
+    }
+
+    h3 {
+        margin: 10px 0;
+        color: #555555;
+        font-size: 25px;
+        font-weight: 600;
+    }
+
+    h4 {
+        color: #808080;
+        font-size: 15px;
+    }
+
+    h5 {
+        color: #444444;
+        text-transform: capitalize;
+        font-size: 18px;
+    }
+}
+
+.show { display: flex;}

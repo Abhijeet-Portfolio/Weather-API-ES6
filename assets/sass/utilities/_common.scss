@@ -1,0 +1,34 @@
+/* 1.2. Clear Fix
+   ========================== */
+
+   .cf:before,
+   .cf:after {
+     display: table;
+     content: " ";
+   }
+   
+   .cf:after { clear: both; }
+   .cf { *zoom: 1; }
+   
+   /*for all*/
+   body {
+     box-sizing: border-box;
+     font-family: sans-serif;
+   }
+   
+   a { 
+     display: inline-block;
+     text-decoration: none; 
+   }
+   
+   li {
+     display: inline-block;
+     list-style-type: none;
+   }
+   
+   /*for wrapper*/
+   .wrapper {
+    max-width: 1349px;
+    width: 50%; 
+    margin: 0 auto;
+  }
