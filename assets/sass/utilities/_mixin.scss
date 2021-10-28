@@ -30,24 +30,3 @@
     -ms-flex-wrap: $wrap;
     flex-wrap: $wrap;
   }
-
-// icon
-@mixin icon($icon,$size:10px,$float:right) {
-  content: $icon;
-  float: $float;
-  font-family: 'fontAwesome';
-  font-size: $size;
-  text-indent: 0;
-}
-
-// box-shadow
-@mixin boxShadow($horizontal,$vertical,$color) {
-  -webkit-box-shadow: $horizontal $vertical $color;
-  box-shadow: $horizontal $vertical $color;
-}
-
-// rotate Y
-@mixin rotateY($deg) {
-  -webkit-transform: rotateY($deg);
-          transform: rotateY($deg);
-}

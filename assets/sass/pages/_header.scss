@@ -1,0 +1,23 @@
+/*=================================
+  Header styling starts here
+=================================*/
+
+header {
+    text-align: center;
+
+    a {
+        width: 50%;
+        margin: 20px 0 0;
+        border-radius: 5px;
+        padding: 5px 0;
+        background-color: #f5f5f5;
+        color: #666666;
+        font-size: 35px;
+        text-transform: capitalize;
+        text-decoration: underline;
+    }
+}
+
+/*=================================
+  Header styling ends here
+=================================*/  
