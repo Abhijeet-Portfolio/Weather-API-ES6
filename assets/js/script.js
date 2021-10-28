@@ -2,11 +2,13 @@
 
 */
 
-let city;
+let city = document.querySelector('.city');
+let cities;
 let error = document.querySelector('.form-group span');
 let form = document.querySelector('form');
 let find = document.querySelector('.find');
 let display = document.querySelector('.display');
+let capitalize = ([ first, ...rest ], locale = navigator.language) => first.toLocaleUpperCase(locale) + rest.join('');
 
 // remove error
 let removeError = () => {
@@ -22,11 +24,25 @@ document.querySelector('.clear').addEventListener('click', (e) => {
     removeError();
 });
 
+// validate Input
+city.addEventListener('input', () => {
+    let textRegax = /([a-zA-Z\s]){1,30}$/;
+    let noNumberRegax = /[^a-zA-Z\s]/gi;
+    if (city.value == null || city.value == '') {
+        removeError();
+    }
+    else if(!textRegax.test(city.value)) {
+        error.classList.add('error');
+        error.textContent = "Please enter only alphabets";
+        city.value = city.value.replace(noNumberRegax,'');
+    }
+    else {removeError();}
+});
+
 // form find
 find.addEventListener('click',(e) => {
     e.preventDefault();
-    city = document.querySelector('.city').value;
-    if(city === '' || city === null) {
+    if(city.value === '' || city.value === null) {
         error.classList.add('error');
         error.textContent = 'This field is required!'
         if(display.classList.contains('show')) {
@@ -34,24 +50,27 @@ find.addEventListener('click',(e) => {
             bgChange('');
         }
     }
-    else { validateCity(city);}
+    else {getWeather(city.value);}
 });
 
-// validate the city
-let validateCity = (city) => {
+fetch('https://raw.githubusercontent.com/dr5hn/countries-states-cities-database/master/countries%2Bcities.json')
+.then( Response => Response.json())
+.then( data => cities = data[102].cities);
+
+// Get weather
+let getWeather = (city) => {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=8e08f2c66d3abadc4ad7e3b408caf570&units=metric`)
     .then(reponse => reponse.json())
     .then(data => {
         if(data.cod === 200) {
-            displayWeather(data);
+            verifyCity(city,data);
             removeError();
-            form.reset();
         }
         else { throw data;}
     })
     .catch(err => {
         error.classList.add('error');
-        error.textContent = err.message;
+        error.textContent = 'City not found';
         if(display.classList.contains('show')) {
             display.classList.remove('show');
             bgChange('');
@@ -59,17 +78,31 @@ let validateCity = (city) => {
     });
 }
 
+// verify city
+let verifyCity = (city,data) => {    
+    for(let i = 0; i <= cities.length; i++) {
+        if ((cities[i].name) === (capitalize(city))) {
+            displayWeather(data);
+            return;
+        }
+    }
+}
+
 // display weather of city
 let displayWeather = data => {
-    console.log(data);
     display.classList.add('show');
-    document.querySelector('.showCity').textContent = data.name;
-    document.querySelector('.temp').textContent = data.main.temp;
-    document.querySelector('.wind').textContent = data.wind.speed;
-    document.querySelector('.status h5').textContent = data.weather[0].main;
-    let img = document.querySelector('.status img');
-    img.setAttribute('src',`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
-    img.setAttribute('alt',data.weather[0].main);
+    display.innerHTML = 
+    `<div>
+        <h2>${data.name}</h2>
+        <h3>${data.main.temp} &deg;C</h3>
+        <h4>Wind speed: ${data.wind.speed} mi/h</h4>
+    </div>
+    <div class="status">
+        <figure>
+            <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="${data.weather[0].main}">
+        </figure>
+        <h5>${data.weather[0].main}</h5>
+    </div>`
     bgChange(data.weather[0].main);  
 }
 
