@@ -33,7 +33,7 @@ city.addEventListener('input', () => {
     }
     else if(!textRegax.test(city.value)) {
         error.classList.add('error');
-        error.textContent = "Please enter only alphabets";
+        error.textContent = "Must contains only alphabets";
         city.value = city.value.replace(noNumberRegax,'');
     }
     else {removeError();}
@@ -56,6 +56,10 @@ find.addEventListener('click',(e) => {
 fetch('https://raw.githubusercontent.com/dr5hn/countries-states-cities-database/master/countries%2Bcities.json')
 .then( Response => Response.json())
 .then( data => cities = data[102].cities);
+
+// fetch('https://raw.githubusercontent.com/russ666/all-countries-and-cities-json/6ee538beca8914133259b401ba47a550313e8984/countries.json')
+// .then(data => data.json())
+// .then(data => cities = data.India);
 
 // Get weather
 let getWeather = (city) => {
